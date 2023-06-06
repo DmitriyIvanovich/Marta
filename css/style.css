@@ -99,15 +99,14 @@ ol {
 }
 
 a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
+  display: inline-block;
   font-size: inherit;
   font-weight: inherit;
   color: inherit;
+  text-decoration: none;
 }
 a:hover {
-  color: red;
+  color: blue;
 }
 
 button {
@@ -149,8 +148,36 @@ img {
   font-weight: normal;
   font-style: normal;
 }
+._text_size_l {
+  font-size: calc(8px + 0.8333333333vw);
+}
+@media (min-width: 1920px) {
+  ._text_size_l {
+    font-size: 22px;
+  }
+}
+
+._text_size_lx {
+  font-size: calc(8px + 1.6666666667vw);
+}
+@media (min-width: 1920px) {
+  ._text_size_lx {
+    font-size: 40px;
+  }
+}
+
+._text_size_xl {
+  font-size: calc(8px + 2.8125vw);
+}
+@media (min-width: 1920px) {
+  ._text_size_xl {
+    font-size: 62px;
+  }
+}
+
 body {
-  background-color: #F8F8F8;
+  --bodyColor:#1a1a1a;
+  background-color: var(--bodyColor);
 }
 
 body,
@@ -166,12 +193,13 @@ button {
 }
 
 ._conteiner {
-  max-width: 1140px;
   margin: 0 auto;
+  width: calc(80px + 61.4583333333vw);
+  max-width: 1260px;
+  box-sizing: border-box;
 }
 
 ._conteiner-big {
-  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -203,10 +231,10 @@ button {
   transition: 200ms linear 100ms;
   opacity: 0.3;
 }
-._template_button_style_0:hover {
+._template_button_style_0:hover, ._template_button_style_0.hover {
   color: black;
 }
-._template_button_style_0:hover::before {
+._template_button_style_0:hover::before, ._template_button_style_0.hover::before {
   transform: translateX(0%);
   opacity: 1;
 }
@@ -227,9 +255,46 @@ button {
   transition: 200ms ease-out;
   transition-delay: 100ms;
 }
-._template_underline_style_0:hover::after {
+._template_underline_style_0:hover::after, ._template_underline_style_0::after.hover {
   width: 100%;
   transition-delay: 0ms;
+}
+
+._template_underline_style_1 {
+  position: relative;
+  white-space: nowrap;
+}
+._template_underline_style_1::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 1px;
+  border-radius: 1px;
+  background-image: linear-gradient(to left, white, white);
+  background-repeat: no-repeat;
+}
+._template_underline_style_1:hover::after {
+  animation: underlineAnim 500ms ease-out;
+}
+@keyframes underlineAnim {
+  from {
+    background-size: 100% 100%;
+    background-position: right;
+  }
+  50% {
+    background-size: 0% 100%;
+    background-position: right;
+  }
+  51% {
+    background-position: left;
+  }
+  to {
+    background-size: 100% 100%;
+    background-position: left;
+  }
 }
 
 ._template_hover_scale_anim:hover {
@@ -238,6 +303,8 @@ button {
 }
 
 header {
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: calc(10px + 0.78125vw) calc(10px + 1.0416666667vw) calc(8px + 0.78125vw);
@@ -360,11 +427,11 @@ header .wrapper.wrapper_right .burger:hover {
   }
 }
 section.main {
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
   background-color: #333;
-  z-index: -1;
+  z-index: 1;
 }
 section.main .live_background {
   position: absolute;
@@ -418,30 +485,15 @@ section.main .content {
   position: relative;
   padding: calc(90px + 13.0208333333vw) 0 calc(60px + 13.0208333333vw);
   margin: 0 auto;
-  width: calc(60px + 63.0208333333vw);
-  max-width: 1260px;
-  box-sizing: border-box;
   color: white;
 }
 section.main .content .title {
-  font-size: calc(8px + 2.8125vw);
   font-weight: 700;
-}
-@media (min-width: 1920px) {
-  section.main .content .title {
-    font-size: 62px;
-  }
 }
 section.main .content .selected_information {
   display: flex;
   margin-top: 80px;
-  font-size: calc(8px + 0.8333333333vw);
   font-weight: 300;
-}
-@media (min-width: 1920px) {
-  section.main .content .selected_information {
-    font-size: 22px;
-  }
 }
 @media (max-width: 400px) {
   section.main .content .selected_information {
@@ -465,7 +517,7 @@ section.main .content .selected_information ul li:not(:last-child) {
   margin-right: calc(10px + 4.6875vw);
 }
 section.main .content .selected_information ul li a {
-  display: inline;
+  display: inline-block;
 }
 section.main .content .buttons {
   display: flex;
@@ -497,7 +549,107 @@ section.main .content .buttons > *:not(:last-child) {
   }
 }
 
-body {
-  background-color: #999;
+section.blabla {
+  margin-top: 88px;
+  color: white;
+}
+section.blabla h3 {
+  width: calc(150px + 28.6458333333vw);
+  max-width: 700px;
+  line-height: 1.7;
+}
+@media (max-width: 600px) {
+  section.blabla h3 {
+    width: auto;
+    font-size: 16px;
+  }
+}
+@media (max-width: 400px) {
+  section.blabla h3 {
+    font-size: 14px;
+  }
+}
+
+section.portfolio_work {
+  position: relative;
+  margin-top: calc(40px + 7.8125vw);
+}
+section.portfolio_work ul li {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: calc((80px + 61.4583333333vw) / 2);
+  max-height: 630px;
+}
+section.portfolio_work ul li:not(:first-child) {
+  margin-top: calc(40px + 14.5833333333vw);
+}
+section.portfolio_work ul li .background {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  opacity: 0.3;
+  overflow: hidden;
+}
+section.portfolio_work ul li .background img {
+  height: 100%;
+  transform: scale(1);
+  transform-origin: center center;
+  transition-duration: 500ms;
+}
+section.portfolio_work ul li .background .frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 5%;
+  background-color: var(--bodyColor);
+  z-index: 5;
+}
+@media (max-width: 770px) {
+  section.portfolio_work ul li .background .frame {
+    display: none;
+  }
+}
+section.portfolio_work ul li .background .frame.right_frame {
+  left: auto;
+  right: 0;
+}
+section.portfolio_work ul li .content {
+  width: 1000px;
+  color: white;
+}
+section.portfolio_work ul li .content .line_decoration {
+  width: 20px;
+  height: 2px;
+  background-color: red;
+  transition: 0.2s ease-out 100ms;
+}
+section.portfolio_work ul li .content .line_decoration.hover {
+  width: 90px;
+}
+section.portfolio_work ul li .content h3 {
+  margin-top: 2%;
+  font-weight: 700;
+}
+section.portfolio_work ul li .content .button {
+  margin-top: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-size: 14px;
+}
+section.portfolio_work ul li:hover img {
+  transform: scale(1.05);
+}
+section.portfolio_work a.show_works {
+  display: block;
+  text-align: center;
+  margin-top: calc(40px + 6.25vw);
+  color: white;
+}
+section.portfolio_work a.show_works sup {
+  font-size: 70%;
+  vertical-align: super;
 }
 /*# sourceMappingURL=style.css.map */

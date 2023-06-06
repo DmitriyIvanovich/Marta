@@ -81,15 +81,15 @@
     <div class="blackout"></div>
     <div class="content">
         <div class="_conteiner">
-            <h1 class="title">
+            <h1 class="title _text_size_xl">
                 Создание сайтов в Одессе.
                 Разработка интернет-магазинов.
                 Продвижение и поддержка.
             </h1>
-            <div class="selected_information">
+            <div class="selected_information _text_size_l">
                 <ul>
                     <li>19 лет на рынке</li>
-                    <li>350+ работ в <a href="#">портфолио</a></li>
+                    <li>350+ работ в <a href="#" class="_template_underline_style_1">портфолио</a></li>
                     <li>10 фанатов своего дела</li>
                 </ul>
             </div>
@@ -121,6 +121,128 @@
             live_background.lastElementChild.classList.add("active")
         }
     </script>
+</section>
+            <section class="blabla">
+    <div class="_conteiner">
+        <h3 class="_text_size_l">Лучше всего о разработчике говорят его <a href="#" class="_template_underline_style_1">проекты</a>. Предлагаем вам взглянуть на некоторые из них или сразу перейти к
+        <a href="#" class="_template_underline_style_1">обсуждению вашей задачи</a>.</h3>
+    </div>
+</section>
+            <section class="portfolio_work">
+    <div class="_conteiner">
+        <ul class="works">
+            <li class="works__item">
+                <div class="background">
+                    <div class="frame left_frame"></div>
+                    <img src="./img/for blocks/ca30dba67346372_1120x630.png" alt="">
+                    <div class="frame right_frame"></div>
+                </div>
+                <a href="#" class="content">
+                    <div class="line_decoration"></div>
+                    <h3 class="_text_size_xl">Лендинг на Тильде DYNA ROOM</h3>
+                    <div class="button _template_button_style_0">описание проекта</div>
+                </a>
+            </li>
+            <li class="works__item">
+                <div class="background">
+                    <div class="frame left_frame"></div>
+                    <img src="./img/for blocks/b2505622d9ca2be_1120x630.png" alt="">
+                    <div class="frame right_frame"></div>
+                </div>
+                <a href="#" class="content">
+                    <div class="line_decoration"></div>
+                    <h3 class="_text_size_xl">Корпоративный сайт для компании Гормолзавод №1</h3>
+                    <div class="button _template_button_style_0">описание проекта</div>
+                </a>
+            </li>
+            <li class="works__item">
+                <div class="background">
+                    <div class="frame left_frame"></div>
+                    <img src="./img/for blocks/b9a503f950896f7_1120x630.png" alt="">
+                    <div class="frame right_frame"></div>
+                </div>
+                <a href="#" class="content">
+                    <div class="line_decoration"></div>
+                    <h3 class="_text_size_xl">B2B-система для компании «ЮГСМ»</h3>
+                    <div class="button _template_button_style_0">описание проекта</div>
+                </a>
+            </li>
+            <li class="works__item">
+                <div class="background">
+                    <div class="frame left_frame"></div>
+                    <img src="./img/for blocks/0b12ba42b3a917e_1120x630.jpg" alt="">
+                    <div class="frame right_frame"></div>
+                </div>
+                <a href="#" class="content">
+                    <div class="line_decoration"></div>
+                    <h3 class="_text_size_xl">Лендинг для «Люксбетон», доставки бетона по Одессе</h3>
+                    <div class="button _template_button_style_0">описание проекта</div>
+                </a>
+            </li>
+            <li class="works__item">
+                <div class="background">
+                    <div class="frame left_frame"></div>
+                    <img src="./img/for blocks/002f31bb263a452_1120x630.jpg" alt="">
+                    <div class="frame right_frame"></div>
+                </div>
+                <a href="#" class="content">
+                    <div class="line_decoration"></div>
+                    <h3 class="_text_size_xl">Четвертая версия сайта архитектурной студии «Квартал»</h3>
+                    <div class="button _template_button_style_0">описание проекта</div>
+                </a>
+            </li>
+        </ul>
+
+        <a class="show_works _text_size_lx" href="#"><span class="_template_underline_style_1">Посмотреть все работы</span> <sup>390</sup></a>
+    </div>
+    <script>
+        const WIDTH_FRAME = 50; //px
+
+        const WORKS = document.querySelectorAll(".works__item .content");
+        print = console.dir;
+
+        WORKS.forEach(item => {
+            item.addEventListener("mouseenter", hoverEffect);
+            item.addEventListener("mouseleave", hoverEffect);
+        })
+
+        function hoverEffect(event) {
+            const LINE = event.target.querySelector(".line_decoration");
+            const BUTTON = event.target.querySelector(".button");
+
+            if (event.type === "mouseenter") {
+                LINE.classList.add("hover");
+                BUTTON.classList.add("hover");
+            }
+            if (event.type === "mouseleave") {
+                LINE.classList.remove("hover");
+                BUTTON.classList.remove("hover");
+            }
+            // print(event);
+        }
+
+        const frames = document.querySelectorAll(".background .frame");
+        frames.forEach(item => item.style.width = WIDTH_FRAME + "px");
+
+        const clientWidth = document.documentElement.clientWidth;
+
+        document.addEventListener("mousemove", scrollImage);
+
+
+        function scrollImage(event) {
+            const mX = event.clientX;
+            frames.forEach(item => {
+                if (item.classList.contains("left_frame") === true) {
+                    item.style.width = WIDTH_FRAME * mX / clientWidth + "px"
+                } else {
+                    item.style.width = WIDTH_FRAME - WIDTH_FRAME * mX / clientWidth + "px"
+                }
+            })
+        }
+    </script>
+</section>
+            <section class="footer">
+   FOOTER
 </section>
             
     </div>
