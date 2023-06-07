@@ -786,8 +786,9 @@ section.comments ul.comments li .line {
 section.comments ul.comments li .line .angle {
   position: relative;
   left: 80px;
-  border-left: 1px solid var(--line_color);
   height: 20px;
+  width: 0;
+  border-left: 1px solid var(--line_color);
 }
 section.comments ul.comments li .line .angle:before {
   content: "";
