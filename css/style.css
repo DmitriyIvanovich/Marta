@@ -190,7 +190,8 @@ button {
 
 ._conteiner {
   margin: 0 auto;
-  width: calc(80px + 61.4583333333vw);
+  padding: 0 5px;
+  width: calc(85px + 61.4583333333vw);
   max-width: 1260px;
   box-sizing: border-box;
 }
@@ -252,6 +253,27 @@ button {
   transition-delay: 100ms;
 }
 ._template_underline_style_0:hover::after, ._template_underline_style_0.hover::after {
+  width: 100%;
+  transition-delay: 0ms;
+}
+
+._template_underline_style_0__hoverBlock:hover ._template_underline_style_0__target {
+  position: relative;
+  white-space: nowrap;
+}
+._template_underline_style_0__hoverBlock:hover ._template_underline_style_0__target::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  display: block;
+  width: 0%;
+  height: 1px;
+  border-radius: 1px;
+  background-color: rgb(255, 0, 0);
+  transition: 200ms ease-out;
+  transition-delay: 100ms;
+}
+._template_underline_style_0__hoverBlock:hover ._template_underline_style_0__target:hover::after, ._template_underline_style_0__hoverBlock:hover ._template_underline_style_0__target.hover::after {
   width: 100%;
   transition-delay: 0ms;
 }
@@ -390,6 +412,11 @@ header .wrapper.wrapper_right ul a {
   }
   header .wrapper.wrapper_right ul.short_nuv {
     display: flex;
+  }
+}
+@media (max-width: 330px) {
+  header .wrapper.wrapper_right ul.short_nuv {
+    display: none;
   }
 }
 header .wrapper.wrapper_right .burger {
@@ -740,7 +767,7 @@ section.clients ul.logos li a {
 }
 
 section.comments {
-  margin-top: calc(40px + 5.2083333333vw);
+  margin-top: calc(40px + 2.6041666667vw);
   color: white;
 }
 section.comments .block_title {
@@ -750,7 +777,7 @@ section.comments .block_title {
   letter-spacing: 0.07;
 }
 section.comments ul.comments {
-  margin-top: calc(50px + 5.2083333333vw);
+  margin-top: calc(50px + 3.125vw);
   display: grid;
   align-items: baseline;
   grid-template-columns: 1fr 1fr 1fr;
@@ -824,5 +851,113 @@ section.comments ul.comments li .client .info_about_client {
   margin-top: 5px;
   color: #8E8E8E;
   line-height: 24px;
+}
+
+section.why_we {
+  margin-top: calc(100px + 5.2083333333vw);
+  color: white;
+}
+section.why_we .title {
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+section.why_we ul {
+  margin-top: calc(50px + 2.6041666667vw);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 5%;
+  grid-row-gap: 10%;
+  font-weight: 500;
+  line-height: 150%;
+}
+@media (max-width: 1000px) {
+  section.why_we ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 700px) {
+  section.why_we ul {
+    font-size: 14px;
+  }
+}
+section.why_we ul li p {
+  margin-top: calc(25px + 1.3020833333vw);
+}
+
+section.our_calling {
+  margin-top: calc(200px + 10.4166666667vw);
+  background-color: white;
+}
+section.our_calling .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 5%;
+  grid-row-gap: 70px;
+}
+@media (max-width: 1200px) {
+  section.our_calling .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 800px) {
+  section.our_calling .grid {
+    grid-template-columns: 1fr;
+  }
+}
+section.our_calling .grid .title {
+  font-size: 33px;
+  line-height: 1.5;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+@media (max-width: 1200px) {
+  section.our_calling .grid .title {
+    font-size: 30px;
+  }
+}
+@media (max-width: 800px) {
+  section.our_calling .grid .title {
+    max-width: 500px;
+    text-align: center;
+    font-size: 26px;
+  }
+  section.our_calling .grid .title br {
+    display: none;
+  }
+}
+@media (max-width: 400px) {
+  section.our_calling .grid .title {
+    font-size: 20px;
+  }
+}
+section.our_calling .grid .card {
+  cursor: pointer;
+}
+section.our_calling .grid .card .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+section.our_calling .grid .card .wrapper .price {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.4);
+}
+section.our_calling .grid .card .wrapper .price .number {
+  font-size: 24px;
+}
+section.our_calling .grid .card .card__title {
+  margin: 20px 0;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+section.our_calling .grid .card .card__title._template_underline_style_0__target::after {
+  background-color: black;
+}
+section.our_calling .grid .card .card__description {
+  font-size: 14px;
+  line-height: 1.5;
 }
 /*# sourceMappingURL=style.css.map */
