@@ -172,8 +172,12 @@ img {
 }
 
 body {
-  --bodyColor:#1a1a1a;
+  --bodyColor:rgb(26, 26, 26);
   background-color: var(--bodyColor);
+  transition: 0.3s ease-in;
+}
+body.body__bgc_white {
+  --bodyColor: rgb(209, 209, 209);
 }
 
 body,
@@ -281,6 +285,8 @@ button {
 ._template_underline_style_1 {
   position: relative;
   white-space: nowrap;
+  --line-color: white;
+  --line-height: 1px;
 }
 ._template_underline_style_1::after {
   content: "";
@@ -289,9 +295,9 @@ button {
   right: 0;
   display: block;
   width: 100%;
-  height: 1px;
+  height: var(--line-height);
   border-radius: 1px;
-  background-image: linear-gradient(to left, white, white);
+  background-image: linear-gradient(to left, var(--line-color), var(--line-color));
   background-repeat: no-repeat;
 }
 ._template_underline_style_1:hover::after {
@@ -886,8 +892,8 @@ section.why_we ul li p {
 }
 
 section.our_calling {
-  margin-top: calc(200px + 10.4166666667vw);
-  background-color: white;
+  margin-top: calc(100px + 5.2083333333vw);
+  padding-top: calc(100px + 5.2083333333vw);
 }
 section.our_calling .grid {
   display: grid;
@@ -906,7 +912,7 @@ section.our_calling .grid {
   }
 }
 section.our_calling .grid .title {
-  font-size: 33px;
+  font-size: 28px;
   line-height: 1.5;
   font-weight: 700;
   text-transform: uppercase;
@@ -914,7 +920,7 @@ section.our_calling .grid .title {
 }
 @media (max-width: 1200px) {
   section.our_calling .grid .title {
-    font-size: 30px;
+    font-size: 28px;
   }
 }
 @media (max-width: 800px) {
@@ -959,5 +965,20 @@ section.our_calling .grid .card .card__title._template_underline_style_0__target
 section.our_calling .grid .card .card__description {
   font-size: 14px;
   line-height: 1.5;
+}
+section.our_calling .view_services {
+  display: block;
+  margin: calc(80px + 10.4166666667vw) auto 20px;
+  text-align: center;
+  font-size: calc(15px + 1.3020833333vw);
+}
+@media (min-width: 1920px) {
+  section.our_calling .view_services {
+    font-size: 40px;
+  }
+}
+section.our_calling .view_services ._template_underline_style_1 {
+  --line-color:black;
+  --line-height: 2px;
 }
 /*# sourceMappingURL=style.css.map */
