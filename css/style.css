@@ -114,6 +114,10 @@ img {
   vertical-align: top;
 }
 
+input {
+  width: 100%;
+}
+
 @font-face {
   font-family: Montserrat;
   src: url(../fonts/Montserrat/Montserrat-Light.ttf);
@@ -172,12 +176,18 @@ img {
 }
 
 body {
-  --bodyColor:rgb(26, 26, 26);
+  --bodyColor:#1a1a1a;
+  --bodyColorSuper:black;
+  --bodyColorContrast:white;
+  --logoColor: white;
   background-color: var(--bodyColor);
   transition: 0.3s ease-in;
 }
 body.body__bgc_white {
-  --bodyColor: rgb(209, 209, 209);
+  --bodyColor: #efeded;
+  --bodyColorSuper: white;
+  --bodyColorContrast: black;
+  --logoColor: #E31E24;
 }
 
 body,
@@ -205,13 +215,15 @@ button {
 }
 
 ._template_button_style_0 {
+  --color:white;
+  --colorHover:black;
   display: inline-block;
   position: relative;
   padding: calc(0px + 0.5208333333vw) calc(8px + 1.0416666667vw);
-  border: 1px solid white;
+  border: 1px solid var(--color);
   font-size: 16px;
   font-weight: 700;
-  color: white;
+  color: var(--color);
   text-transform: uppercase;
   background-color: transparent;
   overflow: hidden;
@@ -227,13 +239,13 @@ button {
   height: 100%;
   inset: 0;
   transform: translateX(-100%);
-  background-color: rgb(255, 255, 255);
+  background-color: var(--color);
   z-index: -1;
   transition: 200ms linear 100ms;
   opacity: 0.3;
 }
 ._template_button_style_0:hover, ._template_button_style_0.hover {
-  color: black;
+  color: var(--colorHover);
 }
 ._template_button_style_0:hover::before, ._template_button_style_0.hover::before {
   transform: translateX(0%);
@@ -243,6 +255,7 @@ button {
 ._template_underline_style_0 {
   position: relative;
   white-space: nowrap;
+  --color: white;
 }
 ._template_underline_style_0::after {
   content: "";
@@ -252,7 +265,7 @@ button {
   width: 0%;
   height: 1px;
   border-radius: 1px;
-  background-color: white;
+  background-color: var(--color);
   transition: 200ms ease-out;
   transition-delay: 100ms;
 }
@@ -348,15 +361,18 @@ header .wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 10;
 }
 header .wrapper.wrapper_left .logo svg {
   width: calc(40px + 2.34375vw);
 }
 header .wrapper.wrapper_left .logo svg path {
-  fill: white;
+  fill: var(--logoColor);
 }
 header .wrapper.wrapper_left .button {
   margin-left: calc(20px + 4.1666666667vw);
+  --color: var(--bodyColorContrast);
+  --colorHover: var(--bodyColorSuper);
 }
 header .wrapper.wrapper_left .button .short_title {
   display: none;
@@ -391,9 +407,9 @@ header .wrapper.wrapper_right ul.short_nuv {
 }
 header .wrapper.wrapper_right ul.short_nuv svg {
   width: 20px;
-  fill: white;
+  fill: var(--bodyColorContrast);
 }
-@media (max-width: 350px) {
+@media (max-width: 370px) {
   header .wrapper.wrapper_right ul.short_nuv svg {
     width: 15px;
   }
@@ -409,8 +425,12 @@ header .wrapper.wrapper_right ul li {
 }
 header .wrapper.wrapper_right ul a {
   color: white;
+  color: var(--bodyColorContrast);
   font-weight: 700;
   font-size: 14px;
+}
+header .wrapper.wrapper_right ul a._template_underline_style_0 {
+  --color:var(--bodyColorContrast);
 }
 @media (max-width: 720px) {
   header .wrapper.wrapper_right ul.full_nav {
@@ -440,7 +460,7 @@ header .wrapper.wrapper_right .burger .line {
   width: 230%;
   border-radius: 1px;
   background-color: transparent;
-  background-image: linear-gradient(90deg, white 48%, transparent 48%, transparent 56%, white 56%);
+  background-image: linear-gradient(90deg, var(--bodyColorContrast) 48%, transparent 48%, transparent 56%, var(--bodyColorContrast) 56%);
 }
 header .wrapper.wrapper_right .burger:hover {
   cursor: pointer;
@@ -451,9 +471,20 @@ header .wrapper.wrapper_right .burger:hover {
     animation-delay: calc(var(--i) * 110ms);
   }
 }
+header .background {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bodyColorSuper);
+  filter: opacity(80%);
+  z-index: 2;
+}
 @media (max-width: 720px) {
-  header {
-    background-color: rgba(0, 0, 0, 0.8);
+  header .background {
+    display: block;
   }
 }
 
@@ -683,9 +714,15 @@ section.portfolio_work ul li:hover img {
 }
 section.portfolio_work a.show_works {
   display: block;
-  text-align: center;
   margin-top: calc(40px + 6.25vw);
+  text-align: center;
+  font-size: calc(15px + 1.3020833333vw);
   color: white;
+}
+@media (min-width: 1920px) {
+  section.portfolio_work a.show_works {
+    font-size: 40px;
+  }
 }
 section.portfolio_work a.show_works sup {
   font-size: 70%;
@@ -980,5 +1017,168 @@ section.our_calling .view_services {
 section.our_calling .view_services ._template_underline_style_1 {
   --line-color:black;
   --line-height: 2px;
+}
+
+section.form {
+  margin-top: calc(100px + 5.2083333333vw);
+  color: white;
+}
+section.form .block_title {
+  font-size: 30px;
+}
+section.form .wrapper {
+  margin-top: calc(20px + 2.0833333333vw);
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 1200px) {
+  section.form .wrapper {
+    display: block;
+  }
+}
+section.form .wrapper form {
+  flex-shrink: 1;
+}
+@media (max-width: 650px) {
+  section.form .wrapper form .form_wrapper {
+    flex-direction: column;
+  }
+  section.form .wrapper form .form_wrapper > * {
+    margin-left: 0 !important;
+  }
+}
+section.form .wrapper form .input {
+  position: relative;
+  display: block;
+  margin-top: 50px;
+  width: 100%;
+}
+@media (max-width: 650px) {
+  section.form .wrapper form .input {
+    margin-top: 70px;
+  }
+}
+section.form .wrapper form .input:not(:first-child):not(.message_input) {
+  margin-left: 20px;
+}
+section.form .wrapper form .input input {
+  position: relative;
+  top: -7px;
+  background-color: transparent;
+  border: 0;
+  color: white;
+  font-size: 16px;
+}
+section.form .wrapper form .input input:focus, section.form .wrapper form .input input:active, section.form .wrapper form .input input:valid {
+  outline: 0;
+}
+section.form .wrapper form .input input:focus ~ .line__box .line, section.form .wrapper form .input input:active ~ .line__box .line, section.form .wrapper form .input input:valid ~ .line__box .line {
+  transform: translateX(0%);
+  transition: 0.2s ease-in;
+}
+section.form .wrapper form .input input:focus + i, section.form .wrapper form .input input:active + i, section.form .wrapper form .input input:valid + i {
+  top: -35px;
+  font-size: 14px;
+}
+section.form .wrapper form .input input#message {
+  width: 100%;
+}
+section.form .wrapper form .input i {
+  position: absolute;
+  left: 0px;
+  top: -7px;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.2s ease-in;
+  opacity: 0.5;
+}
+section.form .wrapper form .input .line__box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+section.form .wrapper form .input .line__box .line {
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  width: 200%;
+  background-image: linear-gradient(to left, rgba(255, 255, 255, 0.3) 50%, white 50%);
+  transform: translateX(-50%);
+  transition: 0.3s ease-in;
+}
+section.form .wrapper form .submit {
+  margin-top: 50px;
+}
+section.form .wrapper form .submit input {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: inherit;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: inherit;
+  border: 0;
+}
+section.form .wrapper form .form_wrapper {
+  display: flex;
+}
+section.form .wrapper .our_contacts {
+  margin-left: 20px;
+  width: 300px;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #868686;
+  flex-shrink: 0;
+}
+@media (max-width: 1200px) {
+  section.form .wrapper .our_contacts {
+    display: flex;
+    margin-top: 50px;
+    width: 100%;
+    margin-left: 0px;
+  }
+}
+@media (max-width: 650px) {
+  section.form .wrapper .our_contacts {
+    flex-direction: column;
+  }
+}
+section.form .wrapper .our_contacts > *:not(:first-child) {
+  margin-top: 30px;
+}
+@media (max-width: 1200px) {
+  section.form .wrapper .our_contacts > *:not(:first-child) {
+    margin-top: 0px;
+    margin-left: 20px;
+  }
+}
+@media (max-width: 650px) {
+  section.form .wrapper .our_contacts > *:not(:first-child) {
+    margin-top: 30px;
+    margin-left: 0px;
+  }
+}
+@media (max-width: 1200px) {
+  section.form .wrapper .our_contacts > * {
+    width: 100%;
+  }
+}
+section.form .wrapper .our_contacts a {
+  margin-top: 15px;
+  color: white;
+}
+section.form .wrapper .our_contacts .messages {
+  display: inline-block;
+  margin-left: 20px;
+}
+section.form .wrapper .our_contacts .messages path {
+  fill: white;
+}
+section.form .wrapper .our_contacts .messages > * {
+  margin-left: 15px;
 }
 /*# sourceMappingURL=style.css.map */
