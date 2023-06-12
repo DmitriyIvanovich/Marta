@@ -72,10 +72,6 @@
         </div>
     </div>
     <div class="background"></div>
-    <!-- <script>
-        print = console.log;
-        print(123);
-    </script> -->
 </header>
             <section class="screen_kit">
     <div class="wrapper">
@@ -499,29 +495,31 @@
                 <div class="form_wrapper">
                     <div class="input text_input">
                         <input type="text" name="name" id="name" required>
-                        <i>Имя</i>
+                        <i class="placeholder">Имя</i>
                         <div class="line__box">
                             <div class="line"></div>
                         </div>
                     </div>
                     <div class="input tel_input">
-                        <input type="tel" name="tel" id="tel" required>
-                        <i>Телефон</i>
+                        <input type="tel" name="tel" id="tel" maxlength="12" required>
+                        <i class="placeholder">Телефон</i>
+                        <i class="telSymbol">+</i>
                         <div class="line__box">
                             <div class="line"></div>
                         </div>
                     </div>
                     <div class="input email_input">
                         <input type="mail" name="mail" id="mail" required>
-                        <i>Email</i>
+                        <i class="placeholder">Email</i>
                         <div class="line__box">
                             <div class="line"></div>
                         </div>
                     </div>
                 </div>
                 <div class="input message_input">
-                    <input type="text" name="message" id="message" required>
-                    <i>Сообщение</i>
+                    <textarea data-autoresize name="message" id="message" required></textarea>
+                    <i class="placeholder">Сообщение</i>
+                    <div class="textareaSizeMetter"></div>
                     <div class="line__box">
                         <div class="line"></div>
                     </div>

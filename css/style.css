@@ -1143,7 +1143,8 @@ section.form .wrapper form .input {
 section.form .wrapper form .input:not(:first-child):not(.message_input) {
   margin-left: 20px;
 }
-section.form .wrapper form .input input {
+section.form .wrapper form .input input,
+section.form .wrapper form .input textarea {
   position: relative;
   top: -7px;
   background-color: transparent;
@@ -1151,21 +1152,50 @@ section.form .wrapper form .input input {
   color: white;
   font-size: 16px;
 }
-section.form .wrapper form .input input:focus, section.form .wrapper form .input input:active, section.form .wrapper form .input input:valid {
+section.form .wrapper form .input input:focus, section.form .wrapper form .input input:active, section.form .wrapper form .input input:valid,
+section.form .wrapper form .input textarea:focus,
+section.form .wrapper form .input textarea:active,
+section.form .wrapper form .input textarea:valid {
   outline: 0;
 }
-section.form .wrapper form .input input:focus ~ .line__box .line, section.form .wrapper form .input input:active ~ .line__box .line, section.form .wrapper form .input input:valid ~ .line__box .line {
+section.form .wrapper form .input input:focus ~ .line__box .line, section.form .wrapper form .input input:active ~ .line__box .line, section.form .wrapper form .input input:valid ~ .line__box .line,
+section.form .wrapper form .input textarea:focus ~ .line__box .line,
+section.form .wrapper form .input textarea:active ~ .line__box .line,
+section.form .wrapper form .input textarea:valid ~ .line__box .line {
   transform: translateX(0%);
   transition: 0.2s ease-in;
 }
-section.form .wrapper form .input input:focus + i, section.form .wrapper form .input input:active + i, section.form .wrapper form .input input:valid + i {
+section.form .wrapper form .input input:focus + i, section.form .wrapper form .input input:active + i, section.form .wrapper form .input input:valid + i,
+section.form .wrapper form .input textarea:focus + i,
+section.form .wrapper form .input textarea:active + i,
+section.form .wrapper form .input textarea:valid + i {
   top: -35px;
   font-size: 14px;
 }
-section.form .wrapper form .input input#message {
+section.form .wrapper form .input input:focus ~ i.telSymbol, section.form .wrapper form .input input:active ~ i.telSymbol, section.form .wrapper form .input input:valid ~ i.telSymbol,
+section.form .wrapper form .input textarea:focus ~ i.telSymbol,
+section.form .wrapper form .input textarea:active ~ i.telSymbol,
+section.form .wrapper form .input textarea:valid ~ i.telSymbol {
+  opacity: 1;
+}
+section.form .wrapper form .input input#message,
+section.form .wrapper form .input textarea#message {
   width: 100%;
 }
-section.form .wrapper form .input i {
+section.form .wrapper form .input.tel_input {
+  box-sizing: border-box;
+}
+section.form .wrapper form .input.tel_input i.telSymbol {
+  position: absolute;
+  left: 0;
+  top: -7px;
+  opacity: 0;
+}
+section.form .wrapper form .input.tel_input input {
+  margin-left: 10px;
+  width: 90%;
+}
+section.form .wrapper form .input i.placeholder {
   position: absolute;
   left: 0px;
   top: -7px;
@@ -1191,6 +1221,27 @@ section.form .wrapper form .input .line__box .line {
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0.3) 50%, white 50%);
   transform: translateX(-50%);
   transition: 0.3s ease-in;
+}
+section.form .wrapper form .input textarea,
+section.form .wrapper form .input .textareaSizeMetter {
+  padding: 0;
+  overflow: visible;
+  font-size: 16px;
+  font-family: Montserrat;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  min-height: 20px;
+}
+section.form .wrapper form .input textarea {
+  height: 20px;
+  resize: none;
+}
+section.form .wrapper form .input .textareaSizeMetter {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -100;
 }
 section.form .wrapper form .submit {
   margin-top: 50px;
