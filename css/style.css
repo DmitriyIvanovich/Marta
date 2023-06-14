@@ -215,8 +215,8 @@ button {
 }
 
 ._template_button_style_0 {
-  --color:white;
-  --colorHover:black;
+  --color: white;
+  --colorHover: black;
   display: inline-block;
   position: relative;
   padding: calc(0px + 0.5208333333vw) calc(8px + 1.0416666667vw);
@@ -372,6 +372,7 @@ header .wrapper.wrapper_left .logo svg path {
 }
 header .wrapper.wrapper_left .button {
   margin-left: calc(20px + 4.1666666667vw);
+  transition: 0.4s ease-in 0.2s;
   --color: var(--bodyColorContrast);
   --colorHover: var(--bodyColorSuper);
 }
@@ -426,6 +427,8 @@ header .wrapper.wrapper_right ul.short_nuv svg {
 }
 header .wrapper.wrapper_right ul li {
   margin-right: calc(20px + 0.5208333333vw);
+  transition: 0.5s ease-in;
+  transition-delay: calc(var(--i) * 50ms);
 }
 header .wrapper.wrapper_right ul a {
   color: white;
@@ -476,17 +479,18 @@ header .wrapper.wrapper_right .burger:hover {
   }
 }
 @media (min-width: 721px) {
-  header.hidden_nav nav {
+  header.hidden_nav li {
     opacity: 0;
     pointer-events: none;
     transform: translateX(20px);
-    transition: 0.3s ease-in;
+    transition: 0.5s ease-in;
+    transition-delay: calc(var(--i) * 50ms);
   }
   header.hidden_nav .button {
     opacity: 0;
     pointer-events: none;
     transform: translateX(20px);
-    transition: 0.3s ease-in;
+    transition-delay: 0.1s !important;
   }
 }
 header .background {
@@ -537,14 +541,19 @@ section.screen_kit .wrapper .button {
   white-space: nowrap;
   bottom: 10px;
   padding: 10px 20px;
-  transform: rotateZ(-90deg);
   transform-origin: 0 0;
   --color: var(--bodyColorContrast);
   --colorHover: var(--bodyColorSuper);
-  transition: 0.5s ease-in;
+  transform: rotateZ(-90deg) translateX(20px);
+  transition: 0.4s ease-in-out;
+  opacity: 0;
+}
+section.screen_kit .wrapper .button.show {
+  transform: rotateZ(-90deg);
+  opacity: 1;
 }
 @media (max-width: 720px) {
-  section.screen_kit .wrapper .button {
+  section.screen_kit .wrapper .button.show {
     transform: rotateZ(-90deg) translateX(50px);
     opacity: 0;
   }
@@ -705,6 +714,13 @@ section.blabla {
   margin-top: 88px;
   color: white;
 }
+section.blabla .showAnim {
+  transition: 0.5s ease-in;
+}
+section.blabla .waitingElement {
+  transform: translateY(30px);
+  opacity: 0;
+}
 section.blabla h3 {
   width: calc(150px + 28.6458333333vw);
   max-width: 700px;
@@ -790,6 +806,24 @@ section.portfolio_work ul li .content .button {
   padding-top: 2%;
   padding-bottom: 2%;
   font-size: 14px;
+}
+section.portfolio_work ul li.showAnim .background::after {
+  content: "123";
+  position: absolute;
+  inset: 0;
+  background-color: var(--bodyColor);
+  transform: translateX(100%);
+  transition: 0.8s ease-out;
+}
+section.portfolio_work ul li.showAnim .content {
+  transition: 0.5s ease-in;
+}
+section.portfolio_work ul li.waitingElement .background::after {
+  transform: translateX(0%);
+}
+section.portfolio_work ul li.waitingElement .content {
+  transform: translateY(30px);
+  opacity: 0;
 }
 section.portfolio_work ul li:hover img {
   transform: scale(1.05);
