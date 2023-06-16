@@ -364,21 +364,23 @@ header .wrapper {
   justify-content: space-between;
   z-index: 10;
 }
-header .wrapper.wrapper_left .logo {
-  opacity: 0;
-  animation: header__show_logo 0.4s ease-in forwards;
-  animation-delay: 0.5s;
-}
-@keyframes header__show_logo {
-  from {
-    transform: translateX(-20px);
+@media (min-width: 720px) {
+  header .wrapper.wrapper_left .logo {
+    opacity: 0;
+    animation: header__show_logo 0.4s ease-in forwards;
+    animation-delay: 0.5s;
   }
-  80% {
-    opacity: 1;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
+  @keyframes header__show_logo {
+    from {
+      transform: translateX(-20px);
+    }
+    80% {
+      opacity: 1;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 }
 header .wrapper.wrapper_left .logo svg {
@@ -393,21 +395,23 @@ header .wrapper.wrapper_left .button {
   --color: var(--bodyColorContrast);
   --colorHover: var(--bodyColorSuper);
 }
-header .wrapper.wrapper_left .button.animFirstShow {
-  opacity: 0;
-  animation: header__show_buttom 0.4s ease-in forwards;
-  animation-delay: 0.8s;
-}
-@keyframes header__show_buttom {
-  from {
-    transform: translateX(-20px);
+@media (min-width: 720px) {
+  header .wrapper.wrapper_left .button.animFirstShow {
+    opacity: 0;
+    animation: header__show_buttom 0.4s ease-in forwards;
+    animation-delay: 0.8s;
   }
-  70% {
-    opacity: 1;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
+  @keyframes header__show_buttom {
+    from {
+      transform: translateX(-20px);
+    }
+    70% {
+      opacity: 1;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 }
 header .wrapper.wrapper_left .button .short_title {
@@ -511,25 +515,27 @@ header .wrapper.wrapper_right .burger {
   height: calc(22px + 0.2604166667vw);
   overflow: hidden;
 }
-header .wrapper.wrapper_right .burger.animFirstShow {
-  opacity: 0;
-  animation: header__show_burger 0.5s ease-in forwards;
-  animation-delay: 4.5s;
-}
-@keyframes header__show_burger {
-  from {
-    transform: translateX(0px) scale(2);
+@media (min-width: 720px) {
+  header .wrapper.wrapper_right .burger.animFirstShow {
+    opacity: 0;
+    animation: header__show_burger 0.5s ease-in forwards;
+    animation-delay: 4.5s;
   }
-  40% {
-    opacity: 0.8;
-  }
-  80% {
-    transform: translateX(0) scale(0.7);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
+  @keyframes header__show_burger {
+    from {
+      transform: translateX(0px) scale(2);
+    }
+    40% {
+      opacity: 0.8;
+    }
+    80% {
+      transform: translateX(0) scale(0.7);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 }
 header .wrapper.wrapper_right .burger .line {
