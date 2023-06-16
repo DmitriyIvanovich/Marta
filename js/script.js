@@ -28,6 +28,52 @@ textarea.addEventListener("input", resizeTextarea);
 const inputTel = document.querySelector('section.form .tel_input');
 inputTel.addEventListener("input", validInputTel);
 
+//===== Установка обработчика для удаления анимации при первом появления элемента ====
+const animationElements = document.querySelectorAll(".animFirstShow");
+for (let i = 0; i < animationElements.length; i++){
+    let item = animationElements[i];
+    item.addEventListener("animationend", event=>{
+        event.target.classList.remove("animFirstShow")
+        // print(item)
+    }, { once: true })
+}
+
+//===== Установка обработчика для удаления анимации при первом появления элемента ====
+const scrollToElement = document.querySelectorAll("[href^='#']");
+// print(scrollToElement)
+for (let i = 0; i < scrollToElement.length; i++){
+    let item = scrollToElement[i];
+    if(item.getAttribute("href").length === 1) continue;
+    
+    let sctollToObject = document.querySelector(item.getAttribute("href"));
+    
+    item.addEventListener("click", event=>{
+        event.preventDefault();
+        // print(window.pageYOffset);
+        scrollStreamToElement(sctollToObject);
+        
+    })
+
+    function scrollStreamToElement(item){
+        let c = sctollToObject.getBoundingClientRect();
+        let dY = c.top;
+        let dYlast = 0;
+        let speed = 10;
+
+        let timer = setInterval(()=>{
+            // print(dY, '000')
+            window.scrollBy(0, speed)
+            speed = speed*1.01;
+            c = sctollToObject.getBoundingClientRect();
+            dY = c.top;
+
+            // print(dY, '111')
+            if (dY === dYlast) clearInterval(timer);
+            dYlast = dY;
+        }, 10)
+    }
+}
+
 
 function showElements(event) {
     let clientHeight = document.documentElement.clientHeight;
@@ -63,6 +109,7 @@ function changeColorBackground(event) {
         document.body.classList.remove("body__bgc_white");
     }
 }
+
 function hiddenHeaderNav(event) {
     // let clientHeight = document.documentElement.clientHeight;
     const header = document.querySelector('header');
@@ -76,6 +123,7 @@ function hiddenHeaderNav(event) {
         header.classList.remove("hidden_nav");
     }
 }
+
 function showButtonOnFixedElements(event) {
     let clientHeight = document.documentElement.clientHeight;
     const button = document.querySelector('section.screen_kit .button');
@@ -89,6 +137,7 @@ function showButtonOnFixedElements(event) {
         button.classList.remove("show");
     }
 }
+
 function resizeTextarea(event) {
     const textarea = event.target;
     let text = textarea.value;
