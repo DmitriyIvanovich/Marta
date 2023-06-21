@@ -1433,6 +1433,8 @@ section.form .wrapper form .input .textareaSizeMetter {
   position: absolute;
   width: 100%;
   opacity: 0;
+  white-space: pre-wrap;
+  background-color: green;
   pointer-events: none;
   z-index: -100;
 }

@@ -141,8 +141,13 @@ function showButtonOnFixedElements(event) {
 function resizeTextarea(event) {
     const textarea = event.target;
     let text = textarea.value;
+    
+    // print(text);
     const textareaMetter = textarea.closest("div").querySelector(".textareaSizeMetter")
     textareaMetter.innerHTML = text;
+    if(text.slice(-1) ==="\n"){
+        textareaMetter.innerHTML += "<br>"
+    };
     textarea.style.height = textareaMetter.clientHeight + "px";
     // print(textareaMetter.clientHeight);
 }
